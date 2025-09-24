@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - GroomWedsBride | Professional Makeup & Beauty Services</title>
+    <meta name="description"
+        content="Explore our comprehensive makeup and beauty services including bridal makeup, groom grooming, party makeup, and special occasion styling. Professional artists at your service.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-rose: #d4717e;
+            --primary-mauve: #a67ba0;
+            --primary-blush: #f5d5d0;
+            --secondary-light: #faf7f5;
+            --text-dark: #2d2d2d;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-rose: #e68a97;
+            --primary-mauve: #b892b3;
+            --primary-blush: #3a2828;
+            --secondary-light: #1a1a1a;
+            --text-dark: #f0f0f0;
+            --text-medium: #b0b0b0;
+            --text-light: #808080;
+            --white: #0d0d0d;
+            --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.08);
+            --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.12);
+            --shadow-lg: 0 8px 32px rgba(255, 255, 255, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-rose);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary-mauve);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-rose);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-rose);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-rose);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-rose);
+            transform: rotate(360deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            padding: 1rem 0;
+        }
+
+        .mobile-nav-links.active {
+            display: block;
+        }
+
+        .mobile-nav-links ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+        .mobile-nav-links li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--primary-blush);
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blush) 0%, var(--white) 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-rose) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 0;
+            background: var(--secondary-light);
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-rose), var(--primary-mauve));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-image {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            color: var(--text-medium);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-rose);
+            font-weight: bold;
+        }
+
+        .service-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--primary-blush);
+        }
+
+        .price-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-rose);
+        }
+
+        .learn-more-btn {
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .learn-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Service Detail Modal */
+        .service-detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .service-detail-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-blush), var(--white));
+            padding: 2rem;
+            position: relative;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: var(--primary-rose);
+            color: white;
+        }
+
+        .modal-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .detail-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .detail-section h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .detail-section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--primary-rose), var(--primary-mauve));
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .detail-card {
+            background: var(--secondary-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .detail-card h4 {
+            color: var(--primary-rose);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .detail-card p {
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .pricing-table {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .pricing-table th {
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .pricing-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--primary-blush);
+            color: var(--text-medium);
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tr:hover {
+            background: var(--secondary-light);
+        }
+
+        .price-highlight {
+            color: var(--primary-rose);
+            font-weight: 600;
+        }
+
+        .book-now-btn {
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 2rem auto 0;
+        }
+
+        .book-now-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-rose);
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.3rem 0;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-rose);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="home.html" class="logo">GroomWedsBride</a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-nav-links" id="mobileNavLinks">
+                <ul>
+                    <li><a href="home.html" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+                    <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="portfolio.html" onclick="closeMobileMenu()">Portfolio</a></li>
+                    <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Services</h1>
+                <p class="hero-subtitle">
+                    Professional makeup and beauty services for weddings, parties, and special occasions. We specialize
+                    in creating looks that photograph beautifully and last all day - because your memories deserve to
+                    look as perfect as you feel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Complete Beauty Solutions</h2>
+            <p class="section-subtitle">
+                From basic packages to luxury transformations - find the perfect service combination for your special
+                day and budget
+            </p>
+
+            <div class="services-grid">
+                <!-- Bridal Packages -->
+                <div class="service-card" onclick="openServiceDetail('bridal')">
+                    <div class="service-image">👰</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Bridal Packages</h3>
+                        <p class="service-description">
+                            Complete bridal transformation with our comprehensive packages. From basic HD makeup to
+                            luxury airbrush with full spa treatments - everything for your perfect wedding day.
+                        </p>
+                        <ul class="service-features">
+                            <li>HD & Airbrush Makeup Options</li>
+                            <li>Hair Styling with Extensions</li>
+                            <li>Nail Art & Spa Services</li>
+                            <li>Trial Sessions Available</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-text">₹15,000 - ₹55,000</span>
+                            <button class="learn-more-btn">View Packages</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Groom Packages -->
+                <div class="service-card" onclick="openServiceDetail('groom')">
+                    <div class="service-image">🤵</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Groom Packages</h3>
+                        <p class="service-description">
+                            Professional grooming services designed for the modern groom. Natural makeup, beard styling,
+                            hair spa treatments, and comprehensive wellness packages.
+                        </p>
+                        <ul class="service-features">
+                            <li>Natural HD Makeup</li>
+                            <li>Beard & Hair Styling</li>
+                            <li>Skin Treatments</li>
+                            <li>Full Body Massage</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-text">₹8,000 - ₹35,000</span>
+                            <button class="learn-more-btn">View Packages</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Family & Bridesmaid Packages -->
+                <div class="service-card" onclick="openServiceDetail('family')">
+                    <div class="service-image">👨‍👩‍👧‍👦</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Family & Bridesmaids</h3>
+                        <p class="service-description">
+                            Coordinated styling for your entire wedding party. Special group packages with significant
+                            discounts for multiple bookings and family members.
+                        </p>
+                        <ul class="service-features">
+                            <li>Group Discount Packages</li>
+                            <li>Coordinated Color Schemes</li>
+                            <li>Saree/Dress Draping</li>
+                            <li>Express Services Available</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-text">₹3,000 - ₹12,000 per person</span>
+                            <button class="learn-more-btn">View Packages</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Party & Special Occasions -->
+                <div class="service-card" onclick="openServiceDetail('party')">
+                    <div class="service-image">🎉</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Party & Events</h3>
+                        <p class="service-description">
+                            Glamorous party looks for celebrations, birthdays, anniversaries, and special events.
+                            Long-lasting formulas that keep you looking stunning all night.
+                        </p>
+                        <ul class="service-features">
+                            <li>Event-Specific Styling</li>
+                            <li>Long-lasting Formula</li>
+                            <li>Photography Ready</li>
+                            <li>Touch-up Support</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-text">₹5,000 - ₹15,000</span>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trial Sessions -->
+                <div class="service-card" onclick="openServiceDetail('trial')">
+                    <div class="service-image">💄</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Trial Sessions</h3>
+                        <p class="service-description">
+                            Perfect your look before the big day with our comprehensive trial sessions for brides and
+                            grooms. Test different styles and make adjustments.
+                        </p>
+                        <ul class="service-features">
+                            <li>Bridal Makeup & Hair Trial</li>
+                            <li>Groom Styling Trial</li>
+                            <li>Multiple Look Options</li>
+                            <li>Photography Testing</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-text">₹2,500 - ₹5,000</span>
+                            <button class="learn-more-btn">Book Trial</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add-On Services -->
+                <div class="service-card" onclick="openServiceDetail('addons')">
+                    <div class="service-image">✨</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Add-On Services</h3>
+                        <p class="service-description">
+                            Enhance your beauty package with premium add-on services. From hair extensions to luxury spa
+                            treatments and specialized nail art.
+                        </p>
+                        <ul class="service-features">
+                            <li>Hair Extensions & Mehendi</li>
+                            <li>Luxury Skin Treatments</li>
+                            <li>Nail Art & Extensions</li>
+                            <li>Body Spa Services</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-text">₹1,500 - ₹8,000</span>
+                            <button class="learn-more-btn">View Services</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail Modal -->
+    <div class="service-detail-modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeServiceDetail()">✕</button>
+                <h2 class="modal-title" id="modalTitle">Service Details</h2>
+                <p class="modal-subtitle" id="modalSubtitle">Professional makeup artistry</p>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GroomWedsBride</h3>
+                    <p>Your trusted partner for bridal and groom makeup services. Creating magical transformations for
+                        your special day.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#" onclick="openServiceDetail('bridal')">Bridal Makeup</a></li>
+                        <li><a href="#" onclick="openServiceDetail('groom')">Groom Grooming</a></li>
+                        <li><a href="#" onclick="openServiceDetail('party')">Party Makeup</a></li>
+                        <li><a href="#" onclick="openServiceDetail('trial')">Trial Sessions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>📍 Delhi NCR, India</li>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ info@groomwedsbride.com</li>
+                        <li>⏰ Mon-Sun: 9:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 <strong>GroomWedsBride</strong>. All rights reserved.
+                    <br>
+                    Made with ❤️ by <a href="https://yourlink.com" target="_blank">Sparks In You</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Service Details Data
+        const serviceDetails = {
+            bridal: {
+                title: "Bridal Packages",
+                subtitle: "Complete bridal beauty transformation",
+                content: `
+                <div class="detail-section">
+                    <h3>Bridal Package Options</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Basic Bridal Package</h4>
+                            <p>HD Bridal Makeup, Hair Styling (Updo/Open Hair), Basic Nail Art, Saree/Dress Draping</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹15,000 - ₹20,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Premium Bridal Package</h4>
+                            <p>Airbrush Makeup, Advanced Hair Styling with Extensions, Gel/Acrylic Nails with Art, Saree Draping, Pre-Bridal Facial</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹25,000 - ₹35,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Luxury Bridal Package</h4>
+                            <p>Luxury HD/Airbrush Makeup, Hair with Floral Decoration, Swarovski Nail Art, Full Body Spa, Manicure & Pedicure</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹40,000 - ₹55,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Trial Sessions Available</h3>
+                    <p>We strongly recommend booking a trial session 1-2 weeks before your wedding to perfect your look. This includes:</p>
+                    <ul style="margin: 1rem 0; padding-left: 2rem; color: var(--text-medium);">
+                        <li>Complete makeup application and hair styling trial</li>
+                        <li>Different style options to choose from</li>
+                        <li>Photography test under different lighting</li>
+                        <li>Adjustments based on your feedback</li>
+                        <li>Final look documentation for wedding day reference</li>
+                    </ul>
+                    <p style="color: var(--primary-rose); font-weight: 600;">Trial Session: ₹3,000 - ₹5,000 (adjustable from final package cost)</p>
+                </div>
+                <div class="detail-section">
+                    <h3>Add-On Services</h3>
+                    <div class="pricing-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hair Extensions</td>
+                                    <td>Premium quality extensions for volume & length</td>
+                                    <td class="price-highlight">₹3,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Mehendi Application</td>
+                                    <td>Traditional bridal mehendi designs</td>
+                                    <td class="price-highlight">₹2,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Pre-Bridal Facial</td>
+                                    <td>Gold/Diamond facial for glowing skin</td>
+                                    <td class="price-highlight">₹4,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Body Spa</td>
+                                    <td>Full body relaxation & skin treatment</td>
+                                    <td class="price-highlight">₹5,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="book-now-btn" onclick="window.location.href='contact.html'">Book Your Bridal Package</button>
+                `
+            },
+            groom: {
+                title: "Groom Packages",
+                subtitle: "Professional grooming for the modern groom",
+                content: `
+                <div class="detail-section">
+                    <h3>Groom Package Options</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Essential Groom Package</h4>
+                            <p>Natural HD Makeup, Hair Styling, Beard Grooming, Basic Manicure</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹8,000 - ₹12,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Premium Groom Package</h4>
+                            <p>HD Makeup with Contouring, Hair Spa & Styling, Beard Design, Facial, Manicure & Pedicure</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹15,000 - ₹25,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Luxury Groom Package</h4>
+                            <p>Complete Grooming with Skin Treatment, Full Body Massage, Hair & Beard Spa, Premium Facial</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹25,000 - ₹35,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Special Groom Services</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Beard Styling</h4>
+                            <p>Professional beard shaping, trimming, and conditioning for the perfect wedding look</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Hair Spa Treatment</h4>
+                            <p>Deep conditioning treatment for healthy, shiny hair that photographs beautifully</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Skin Brightening</h4>
+                            <p>Special treatments to ensure even skin tone and natural glow for photos</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="book-now-btn" onclick="window.location.href='contact.html'">Book Your Groom Package</button>
+                `
+            },
+            family: {
+                title: "Family & Bridesmaids",
+                subtitle: "Coordinated styling for your wedding party",
+                content: `
+                <div class="detail-section">
+                    <h3>Group Packages</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Bridesmaid Package</h4>
+                            <p>HD Makeup, Hair Styling, Nail Art, Saree/Dress Draping</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹5,000 - ₹8,000 per person</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Family Member Package</h4>
+                            <p>Age-appropriate makeup, Hair styling, Basic nail service</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹3,000 - ₹6,000 per person</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Express Service</h4>
+                            <p>Quick makeup & hair for additional guests</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹2,000 - ₹3,500 per person</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Group Discounts</h3>
+                    <div class="pricing-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Number of People</th>
+                                    <th>Discount</th>
+                                    <th>Services Included</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>3-5 People</td>
+                                    <td class="price-highlight">10% Off</td>
+                                    <td>Full makeup & hair styling</td>
+                                </tr>
+                                <tr>
+                                    <td>6-10 People</td>
+                                    <td class="price-highlight">15% Off</td>
+                                    <td>Makeup, hair & nail services</td>
+                                </tr>
+                                <tr>
+                                    <td>10+ People</td>
+                                    <td class="price-highlight">20% Off</td>
+                                    <td>Complete beauty services with priority</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="book-now-btn" onclick="window.location.href='contact.html'">Book Group Package</button>
+                `
+            },
+            party: {
+                title: "Party & Events",
+                subtitle: "Glamorous looks for special occasions",
+                content: `
+                <div class="detail-section">
+                    <h3>Event Packages</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Cocktail Party Look</h4>
+                            <p>Bold makeup with smokey eyes, contouring, glamorous hair styling</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹5,000 - ₹7,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Reception Makeup</h4>
+                            <p>Elegant HD makeup, sophisticated hair updo, nail art</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹8,000 - ₹12,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Anniversary/Birthday</h4>
+                            <p>Age-appropriate glamorous makeup with hair styling</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹4,000 - ₹6,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Special Features</h3>
+                    <ul style="margin: 1rem 0; padding-left: 2rem; color: var(--text-medium);">
+                        <li>Waterproof and long-lasting formulas</li>
+                        <li>Touch-up kit provided for the event</li>
+                        <li>Photography and lighting tested looks</li>
+                        <li>Quick change options for multiple events</li>
+                        <li>On-location services available</li>
+                    </ul>
+                </div>
+                <button class="book-now-btn" onclick="window.location.href='contact.html'">Book Party Makeup</button>
+                `
+            },
+            trial: {
+                title: "Trial Sessions",
+                subtitle: "Perfect your look before the big day",
+                content: `
+                <div class="detail-section">
+                    <h3>Trial Session Options</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Bridal Trial</h4>
+                            <p>Complete makeup and hair trial with multiple style options</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹3,500 - ₹5,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Groom Trial</h4>
+                            <p>Natural makeup trial with hair and beard styling options</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹2,500 - ₹3,500</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Express Trial</h4>
+                            <p>Quick makeup test for family members</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹1,500 - ₹2,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>What's Included</h3>
+                    <ul style="margin: 1rem 0; padding-left: 2rem; color: var(--text-medium);">
+                        <li>2-3 different makeup style options</li>
+                        <li>Hair styling variations</li>
+                        <li>Photography under different lighting conditions</li>
+                        <li>Product testing for skin compatibility</li>
+                        <li>Detailed notes for wedding day reference</li>
+                        <li>Complimentary skin consultation</li>
+                    </ul>
+                </div>
+                <button class="book-now-btn" onclick="window.location.href='contact.html'">Book Trial Session</button>
+                `
+            },
+            addons: {
+                title: "Add-On Services",
+                subtitle: "Enhance your beauty package",
+                content: `
+                <div class="detail-section">
+                    <h3>Premium Add-Ons</h3>
+                    <div class="pricing-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hair Extensions</td>
+                                    <td>Premium quality clip-on or tape extensions</td>
+                                    <td class="price-highlight">₹3,000 - ₹5,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Bridal Mehendi</td>
+                                    <td>Traditional full hand and feet designs</td>
+                                    <td class="price-highlight">₹2,500 - ₹4,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Nail Extensions</td>
+                                    <td>Acrylic or gel extensions with art</td>
+                                    <td class="price-highlight">₹2,000 - ₹3,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Gold/Diamond Facial</td>
+                                    <td>Luxury facial for radiant skin</td>
+                                    <td class="price-highlight">₹3,500 - ₹5,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Body Polishing</td>
+                                    <td>Full body exfoliation and moisturizing</td>
+                                    <td class="price-highlight">₹4,000 - ₹6,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Hair Spa Treatment</td>
+                                    <td>Deep conditioning for silky smooth hair</td>
+                                    <td class="price-highlight">₹1,500 - ₹2,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Eyelash Extensions</td>
+                                    <td>Semi-permanent lash extensions</td>
+                                    <td class="price-highlight">₹2,500 - ₹4,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Tattoo Coverage</td>
+                                    <td>Professional concealing of tattoos</td>
+                                    <td class="price-highlight">₹1,500 - ₹3,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Spa Packages</h3>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <h4>Relaxation Package</h4>
+                            <p>60-minute full body massage with aromatherapy</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹3,500</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Detox Package</h4>
+                            <p>Body wrap, steam, and detoxifying treatment</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹5,000</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Bridal Glow Package</h4>
+                            <p>Complete spa treatment for radiant skin</p>
+                            <div style="margin-top: 10px; font-weight: 600; color: var(--primary-rose);">₹8,000</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="book-now-btn" onclick="window.location.href='contact.html'">Customize Your Package</button>
+                `
+            }
+        };
+
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update theme toggle buttons
+            const themeButtons = document.querySelectorAll('.theme-toggle');
+            themeButtons.forEach(btn => {
+                btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            const themeButtons = document.querySelectorAll('.theme-toggle');
+            themeButtons.forEach(btn => {
+                btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNavLinks');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNavLinks');
+            mobileNav.classList.remove('active');
+        }
+
+        // Service Detail Modal
+        function openServiceDetail(service) {
+            const modal = document.getElementById('serviceModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalSubtitle = document.getElementById('modalSubtitle');
+            const modalBody = document.getElementById('modalBody');
+
+            const details = serviceDetails[service];
+            if (details) {
+                modalTitle.textContent = details.title;
+                modalSubtitle.textContent = details.subtitle;
+                modalBody.innerHTML = details.content;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeServiceDetail() {
+            const modal = document.getElementById('serviceModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('serviceModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeServiceDetail();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeServiceDetail();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - GroomWedsBride | Professional Makeup & Wedding Services</title>
+    <meta name="description"
+        content="Explore our stunning portfolio of bridal makeup, groom styling, family makeovers, and wedding photography. See the beautiful transformations we've created for our clients.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-rose: #d4717e;
+            --primary-mauve: #a67ba0;
+            --primary-blush: #f5d5d0;
+            --secondary-light: #faf7f5;
+            --text-dark: #2d2d2d;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-rose: #e68a97;
+            --primary-mauve: #b892b3;
+            --primary-blush: #3a2828;
+            --secondary-light: #1a1a1a;
+            --text-dark: #f0f0f0;
+            --text-medium: #b0b0b0;
+            --text-light: #808080;
+            --white: #0d0d0d;
+            --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.08);
+            --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.12);
+            --shadow-lg: 0 8px 32px rgba(255, 255, 255, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-rose);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary-mauve);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-rose);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-rose);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-rose);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-rose);
+            transform: rotate(360deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            padding: 1rem 0;
+        }
+
+        .mobile-nav-links.active {
+            display: block;
+        }
+
+        .mobile-nav-links ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+        .mobile-nav-links li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--primary-blush);
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blush) 0%, var(--white) 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-rose) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 5rem 0;
+            background: var(--secondary-light);
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            color: var(--text-medium);
+            border: 2px solid transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-input {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-blush);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+            background: var(--white);
+            color: var(--text-dark);
+            min-width: 250px;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-rose);
+            box-shadow: 0 0 15px rgba(212, 113, 126, 0.3);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+        }
+
+        .portfolio-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-rose), var(--primary-mauve));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-placeholder {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 2.5rem;
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .overlay-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+        }
+
+        .overlay-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+        }
+
+        .portfolio-content p {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--primary-blush);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .view-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Loading state */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+
+        .spinner {
+            border: 3px solid var(--primary-blush);
+            border-top: 3px solid var(--primary-rose);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* No results */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-light);
+        }
+
+        .no-results h3 {
+            margin-bottom: 1rem;
+            color: var(--text-medium);
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+        }
+
+        /* Statistics */
+        .stats {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-rose), var(--primary-mauve));
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-family: 'Crimson Text', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Modal */
+        .service-detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .service-detail-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-blush), var(--white));
+            padding: 2rem;
+            position: relative;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: var(--primary-rose);
+            color: white;
+        }
+
+        .modal-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--primary-blush);
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .gallery-item.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-family: 'Crimson Text', serif;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-rose);
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.3rem 0;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-rose);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .search-input {
+                min-width: auto;
+            }
+
+            .portfolio-meta {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .portfolio-content {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="home.html" class="logo">GroomWedsBride</a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-nav-links" id="mobileNavLinks">
+                <ul>
+                    <li><a href="home.html" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+                    <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="portfolio.html" onclick="closeMobileMenu()">Portfolio</a></li>
+                    <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Portfolio</h1>
+                <p class="hero-subtitle">
+                    Beautiful transformations and memorable moments we've created for our clients. Each project tells
+                    a unique story of beauty, celebration, and the special occasions we've been privileged to be part
+                    of.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Our Beautiful Work</h2>
+            <p class="section-subtitle">
+                From intimate ceremonies to grand celebrations, explore our diverse portfolio of makeup artistry
+                and styling transformations.
+            </p>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-category="all">All Work</button>
+                <button class="filter-btn" data-category="bridal">Bridal</button>
+                <button class="filter-btn" data-category="groom">Groom</button>
+                <button class="filter-btn" data-category="family">Family</button>
+                <button class="filter-btn" data-category="party">Party</button>
+                <button class="filter-btn" data-category="photoshoot">Photoshoot</button>
+                <input type="text" class="search-input" placeholder="Search our portfolio..." id="searchInput">
+            </div>
+
+            <!-- Loading Animation -->
+            <div class="loading" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Loading our beautiful work...</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="850">0</span>
+                    <div class="stat-label">Beautiful Makeovers</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="320">0</span>
+                    <div class="stat-label">Happy Brides</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="180">0</span>
+                    <div class="stat-label">Groom Services</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span>
+                    <div class="stat-label">Client Satisfaction %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GroomWedsBride</h3>
+                    <p>Your trusted partner for bridal and groom makeup services. Creating magical transformations for
+                        your special day.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Bridal Makeup</a></li>
+                        <li><a href="services.html">Groom Grooming</a></li>
+                        <li><a href="services.html">Party Makeup</a></li>
+                        <li><a href="services.html">Trial Sessions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>📍 Delhi NCR, India</li>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ info@groomwedsbride.com</li>
+                        <li>⏰ Mon-Sun: 9:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 <strong>GroomWedsBride</strong>. All rights reserved.
+                    <br>
+                    Made with ❤️ by <a href="https://yourlink.com" target="_blank">Sparks In You</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div class="service-detail-modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeGallery()">✕</button>
+                <h2 class="modal-title" id="modalTitle">Gallery</h2>
+            </div>
+            <div class="modal-body">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery images will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Portfolio data
+        const portfolioItems = [
+            {
+                category: 'bridal',
+                title: 'Classic Bridal Elegance',
+                description: 'A stunning traditional bridal look featuring intricate eye makeup, flawless base, and elegant styling that perfectly complemented the bride\'s natural beauty.',
+                client: 'Priya S.',
+                date: '2024-12-15',
+                tags: ['traditional', 'elegant', 'gold', 'classic'],
+                images: [
+                    'bridal-1-main.jpg',
+                    'bridal-1-detail.jpg',
+                    'bridal-1-full.jpg'
+                ]
+            },
+            {
+                category: 'bridal',
+                title: 'Modern Minimalist Bride',
+                description: 'Clean, contemporary bridal makeup with soft contouring, nude lips, and subtle highlighting for a fresh, modern look.',
+                client: 'Ananya K.',
+                date: '2024-12-08',
+                tags: ['modern', 'minimalist', 'nude', 'contemporary'],
+                images: [
+                    'bridal-2-main.jpg',
+                    'bridal-2-detail.jpg'
+                ]
+            },
+            {
+                category: 'groom',
+                title: 'Dapper Groom Styling',
+                description: 'Complete grooming package including facial cleanup, beard styling, hair grooming, and subtle makeup for a polished, confident look.',
+                client: 'Arjun M.',
+                date: '2024-12-10',
+                tags: ['grooming', 'beard', 'styling', 'masculine'],
+                images: [
+                    'groom-1-main.jpg',
+                    'groom-1-beard.jpg',
+                    'groom-1-hair.jpg'
+                ]
+            },
+            {
+                category: 'groom',
+                title: 'Traditional Groom Look',
+                description: 'Classic Indian groom styling with traditional elements, perfect beard grooming, and ceremonial makeup for the wedding day.',
+                client: 'Vikram R.',
+                date: '2024-11-28',
+                tags: ['traditional', 'indian', 'ceremonial', 'classic'],
+                images: [
+                    'groom-2-main.jpg',
+                    'groom-2-traditional.jpg'
+                ]
+            },
+            {
+                category: 'family',
+                title: 'Family Wedding Looks',
+                description: 'Complete family makeover for the wedding celebration, including the mother of bride, sisters, and extended family members.',
+                client: 'Sharma Family',
+                date: '2024-12-05',
+                tags: ['family', 'coordinated', 'celebration', 'group'],
+                images: [
+                    'family-1-group.jpg',
+                    'family-1-mother.jpg',
+                    'family-1-sisters.jpg',
+                    'family-1-complete.jpg'
+                ]
+            },
+            {
+                category: 'party',
+                title: 'Glamorous Party Makeup',
+                description: 'Bold, glamorous party makeup with dramatic eyes, perfect contouring, and long-lasting finish for a night celebration.',
+                client: 'Riya P.',
+                date: '2024-12-01',
+                tags: ['glamorous', 'party', 'dramatic', 'evening'],
+                images: [
+                    'party-1-main.jpg',
+                    'party-1-eyes.jpg',
+                    'party-1-full.jpg'
+                ]
+            },
+            {
+                category: 'party',
+                title: 'Cocktail Event Styling',
+                description: 'Sophisticated cocktail party look with subtle smokey eyes, glossy lips, and elegant styling perfect for evening events.',
+                client: 'Meera J.',
+                date: '2024-11-25',
+                tags: ['cocktail', 'sophisticated', 'smokey', 'elegant'],
+                images: [
+                    'party-2-main.jpg',
+                    'party-2-styling.jpg'
+                ]
+            },
+            {
+                category: 'photoshoot',
+                title: 'Fashion Photography Makeup',
+                description: 'High-fashion makeup designed for professional photography with bold features, perfect for magazine-style shoots.',
+                client: 'Kavya L.',
+                date: '2024-11-20',
+                tags: ['fashion', 'photography', 'editorial', 'bold'],
+                images: [
+                    'photo-1-main.jpg',
+                    'photo-1-profile.jpg',
+                    'photo-1-close.jpg'
+                ]
+            },
+            {
+                category: 'photoshoot',
+                title: 'Portrait Session Makeup',
+                description: 'Natural yet camera-ready makeup for professional portrait photography, emphasizing natural beauty and features.',
+                client: 'Sanya D.',
+                date: '2024-11-15',
+                tags: ['portrait', 'natural', 'photography', 'professional'],
+                images: [
+                    'photo-2-main.jpg',
+                    'photo-2-natural.jpg'
+                ]
+            },
+            {
+                category: 'bridal',
+                title: 'Royal Wedding Look',
+                description: 'Opulent bridal makeup inspired by royal themes, featuring intricate detailing, rich colors, and luxurious styling.',
+                client: 'Ishita V.',
+                date: '2024-11-10',
+                tags: ['royal', 'opulent', 'luxury', 'detailed'],
+                images: [
+                    'bridal-3-main.jpg',
+                    'bridal-3-jewelry.jpg',
+                    'bridal-3-royal.jpg'
+                ]
+            },
+            {
+                category: 'family',
+                title: 'Mehendi Function Family',
+                description: 'Vibrant and colorful makeup looks for the entire family during mehendi celebrations, featuring bright colors and festive styling.',
+                client: 'Gupta Family',
+                date: '2024-11-05',
+                tags: ['mehendi', 'colorful', 'festive', 'vibrant'],
+                images: [
+                    'family-2-mehendi.jpg',
+                    'family-2-colorful.jpg',
+                    'family-2-festive.jpg'
+                ]
+            },
+            {
+                category: 'groom',
+                title: 'Contemporary Groom Style',
+                description: 'Modern groom grooming with contemporary styling, clean lines, and subtle enhancement for the fashion-forward groom.',
+                client: 'Karan T.',
+                date: '2024-10-30',
+                tags: ['contemporary', 'modern', 'clean', 'fashion'],
+                images: [
+                    'groom-3-main.jpg',
+                    'groom-3-modern.jpg'
+                ]
+            }
+        ];
+
+        // State variables
+        let filteredItems = [...portfolioItems];
+        let currentFilter = 'all';
+        let searchTerm = '';
+        let animationDelay = 0;
+
+        // DOM elements
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('searchInput');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const galleryModal = document.getElementById('galleryModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const galleryGrid = document.getElementById('galleryGrid');
+
+        // Initialize portfolio on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                renderPortfolio();
+                animateStats();
+                setupIntersectionObserver();
+            }, 1000);
+        });
+
+        // Filter functionality
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                currentFilter = this.getAttribute('data-category');
+                filterPortfolio();
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', function () {
+            searchTerm = this.value.toLowerCase();
+            filterPortfolio();
+        });
+
+        // Filter portfolio items
+        function filterPortfolio() {
+            filteredItems = portfolioItems.filter(item => {
+                const matchesCategory = currentFilter === 'all' || item.category === currentFilter;
+                const matchesSearch = searchTerm === '' ||
+                    item.title.toLowerCase().includes(searchTerm) ||
+                    item.description.toLowerCase().includes(searchTerm) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+
+                return matchesCategory && matchesSearch;
+            });
+
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                renderPortfolio();
+            }, 500);
+        }
+
+        // Render portfolio items
+        function renderPortfolio() {
+            portfolioGrid.innerHTML = '';
+            animationDelay = 0;
+
+            if (filteredItems.length === 0) {
+                portfolioGrid.innerHTML = `
+                    <div class="no-results">
+                        <h3>No Results Found</h3>
+                        <p>Try adjusting your search terms or filters to find what you're looking for.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredItems.forEach((item, index) => {
+                const portfolioItem = createPortfolioItem(item, index);
+                portfolioGrid.appendChild(portfolioItem);
+            });
+        }
+
+        // Create individual portfolio item
+        function createPortfolioItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'portfolio-item';
+            div.style.animationDelay = `${animationDelay}s`;
+            animationDelay += 0.1;
+
+            // Create main image placeholder or actual image
+            const mainImage = item.images && item.images[0] ?
+                `<img src="${item.images[0]}" alt="${item.title}" loading="lazy" 
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 <div class="portfolio-placeholder" style="display: none;">${item.title.charAt(0)}</div>` :
+                `<div class="portfolio-placeholder">${item.title.charAt(0)}</div>`;
+
+            div.innerHTML = `
+                <div class="portfolio-image">
+                    ${mainImage}
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h4>View Gallery</h4>
+                            <p>${item.images ? item.images.length : 3} Photos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <div class="portfolio-meta">
+                        <div class="client-info">
+                            <span>👤</span>
+                            <span>${item.client}</span>
+                            <span>•</span>
+                            <span>${formatDate(item.date)}</span>
+                        </div>
+                        <button class="view-btn" onclick="openGallery('${item.title}', ${JSON.stringify(item.images || []).replace(/"/g, '&quot;')})">
+                            View Gallery
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Add click handler for the entire item
+            div.addEventListener('click', function (e) {
+                if (!e.target.classList.contains('view-btn')) {
+                    openGallery(item.title, item.images || []);
+                }
+            });
+
+            return div;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Show loading spinner
+        function showLoading() {
+            loadingSpinner.style.display = 'block';
+            portfolioGrid.style.display = 'none';
+        }
+
+        // Hide loading spinner
+        function hideLoading() {
+            loadingSpinner.style.display = 'none';
+            portfolioGrid.style.display = 'grid';
+        }
+
+        // Intersection Observer for animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all portfolio items
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Gallery Modal Functions
+        function openGallery(title, images) {
+            modalTitle.textContent = title;
+            galleryGrid.innerHTML = '';
+
+            if (!images || images.length === 0) {
+                // Create placeholder images
+                const placeholderImages = Array.from({ length: 3 }, (_, i) => ({
+                    placeholder: true,
+                    text: `${title} ${i + 1}`
+                }));
+
+                placeholderImages.forEach((img, index) => {
+                    createGalleryItem(img, index);
+                });
+            } else {
+                images.forEach((image, index) => {
+                    createGalleryItem({ src: image, alt: `${title} ${index + 1}` }, index);
+                });
+            }
+
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function createGalleryItem(imageData, index) {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.style.animationDelay = `${index * 0.1}s`;
+
+            if (imageData.placeholder) {
+                div.innerHTML = `<div class="gallery-placeholder">${imageData.text}</div>`;
+            } else {
+                div.innerHTML = `
+                    <img src="${imageData.src}" alt="${imageData.alt}" loading="lazy"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-placeholder" style="display: none;">${imageData.alt}</div>
+                `;
+            }
+
+            setTimeout(() => {
+                div.classList.add('loaded');
+            }, index * 100);
+
+            galleryGrid.appendChild(div);
+        }
+
+        function closeGallery() {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        galleryModal.addEventListener('click', function (e) {
+            if (e.target === galleryModal) {
+                closeGallery();
+            }
+        });
+
+        // Animate statistics
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        animateNumber(entry.target, target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            statNumbers.forEach(stat => observer.observe(stat));
+        }
+
+        function animateNumber(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 40);
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+
+            // Update theme toggle buttons
+            const themeButtons = document.querySelectorAll('.theme-toggle');
+            themeButtons.forEach(btn => {
+                btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+
+            // Save theme preference
+            localStorage.setItem('preferred-theme', newTheme);
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileNavLinks = document.getElementById('mobileNavLinks');
+            mobileNavLinks.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileNavLinks = document.getElementById('mobileNavLinks');
+            mobileNavLinks.classList.remove('active');
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('preferred-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const themeButtons = document.querySelectorAll('.theme-toggle');
+            themeButtons.forEach(btn => {
+                btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            });
+        });
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && galleryModal.classList.contains('active')) {
+                closeGallery();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function () {
+            // Recalculate animations if needed
+            if (window.innerWidth <= 768) {
+                // Mobile adjustments
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                portfolioItems.forEach(item => {
+                    item.style.animationDelay = '0s';
+                });
+            }
+        });
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
